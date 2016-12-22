@@ -1,0 +1,13 @@
+{
+  "name": "gpsdanbreakingnews",
+  "version": "1.0.0",
+  "description": "Obtener las coordenas GPS del celular validando que no sean falsas y que la hora y zona horaria sean tomadas de la red",
+  "cordova": {
+    "id": "cordova-plugin-gps-danbreakingnews",
+    "platforms": [
+      "android"
+    ]
+  },
+  "author": "Daniel Martinez danbreakingnews@gmail.com",
+  "license": "MIT"
+}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-gps-danbreakingnews" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<name>GPSDanBreakingNews</name>
+	
+    <js-module src="www/GPSDanBreakingNews.js" name="GPSDanBreakingNews">
+        <clobbers target="window.plugins.GPSDanBreakingNews" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file parent="/*" target="res/xml/config.xml">
+			<feature name="GPSDanBreakingNews">
+                <param name="android-package" value="com.custom.plugin.GPSDanBreakingNews" />
+            </feature>
+		</config-file>
+		
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+		</config-file>
+		
+        <source-file src="src/android/com/custom/plugin/GPSDanBreakingNews.java" target-dir="src/android/com/custom/plugin" />
+        
+        <lib-file src="src/android/android-support-v4.jar"/>
+    </platform>
+	
+</plugin>

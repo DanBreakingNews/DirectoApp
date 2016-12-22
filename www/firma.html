@@ -1,0 +1,97 @@
+<html>
+    <head>
+		<!-- Stylesheet Load -->
+		<link href="theme/styles/style.css"				rel="stylesheet" 	type="text/css">
+		<link href="theme/styles/framework-style.css" 	rel="stylesheet" 	type="text/css">
+		<link href="theme/styles/framework.css" 			rel="stylesheet" 	type="text/css">
+		<link href="theme/styles/coach.css"				rel="stylesheet" 	type="text/css">
+		<link href="theme/styles/icons.css"				rel="stylesheet" 	type="text/css">
+		<link href="theme/styles/retina.css" 				rel="stylesheet" 	type="text/css" 	media="only screen and (-webkit-min-device-pixel-ratio: 2)" />
+
+		<!--Page Scripts Load -->
+		<script src="theme/scripts/jquery.min.js"		type="text/javascript"></script>	
+		<script src="theme/scripts/jquery-ui-min.js"  type="text/javascript"></script>
+		<script src="theme/scripts/colorbox.js"		type="text/javascript"></script>
+		<script src="theme/scripts/hammer.js"			type="text/javascript"></script>	
+		<script src="theme/scripts/subscribe.js"		type="text/javascript"></script>
+		<script src="theme/scripts/contact.js"		type="text/javascript"></script>
+		<script src="theme/scripts/swipe.js"			type="text/javascript"></script>
+		<script src="theme/scripts/swipebox.js"		type="text/javascript"></script>
+		<script src="theme/scripts/retina.js"			type="text/javascript"></script>
+		<script src="theme/scripts/custom.js"			type="text/javascript"></script>
+		<script src="theme/scripts/framework.js"		type="text/javascript"></script>
+        
+		<script src="jSignature/libs/modernizr.js"></script>
+		<title>Firma</title>
+<style type="text/css">
+	#signatureparent {
+		color:darkblue;
+		background-color:darkgrey;
+		/*max-width:600px;*/
+		padding:5px;
+		width: 100%;
+		
+	}
+	
+	
+	#signature {
+		border: 2px dotted black;
+		background-color:lightgrey;
+		width: 100%;
+	}
+
+	/* Drawing the 'gripper' for touch-enabled devices */ 
+	html.touch #content {
+		float:left;
+		width:92%;
+	}
+	html.touch #scrollgrabber {
+		float:right;
+		width:4%;
+		margin-right:2%;
+		background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAFCAAAAACh79lDAAAAAXNSR0IArs4c6QAAABJJREFUCB1jmMmQxjCT4T/DfwAPLgOXlrt3IwAAAABJRU5ErkJggg==)
+	}
+	html.borderradius #scrollgrabber {
+		border-radius: 1em;
+	}
+	 
+</style>
+    </head>
+    <body>
+	
+        <div class="content">
+			<div class="decoration"></div>
+			<div class="container no-bottom">
+				<div id="signatureparent">
+					<div id="signature"/>
+				</div>
+			</div>
+			<div >
+                <a class="no-bottom demo-button button grey fullscreen-button" 
+				onclick="limpiar()"
+				>Limpiar</a>
+				
+            </div>
+        </div>
+<script src="jSignature/src/jSignature.js"></script>
+<script src="jSignature/src/plugins/jSignature.CompressorBase30.js"></script>
+<script src="jSignature/src/plugins/jSignature.CompressorSVG.js"></script>
+<script src="jSignature/src/plugins/jSignature.UndoButton.js"></script> 
+<script src="jSignature/src/plugins/signhere/jSignature.SignHere.js"></script> 
+<script>
+var $sigdiv;
+$(document).ready(function() {
+	// This is the part where jSignature is initialized.
+	$sigdiv = $("#signature").jSignature();
+})
+
+function limpiar()
+{
+	if( $sigdiv != null )
+	{
+		$sigdiv.jSignature("reset");
+	}
+}
+</script>
+    </body>
+</html>

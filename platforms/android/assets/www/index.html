@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+		<!-- Stylesheet Load -->
+		<link href="theme/styles/style.css" rel="stylesheet" type="text/css">
+		<link href="theme/styles/framework-style.css" rel="stylesheet" type="text/css">
+		<link href="theme/styles/framework.css" rel="stylesheet" type="text/css">
+		<link href="theme/styles/coach.css" rel="stylesheet" type="text/css">
+		<link href="theme/styles/icons.css" rel="stylesheet" type="text/css">
+		<link href="theme/styles/retina.css" rel="stylesheet" type="text/css" media="only screen and (-webkit-min-device-pixel-ratio: 2)" />
+		
+		<script src="cordova.js"></script>
+		
+		<!--Page Scripts Load -->
+		<script src="theme/scripts/jquery.min.js" type="text/javascript"></script>	
+		<script src="theme/scripts/jquery-ui-min.js" type="text/javascript"></script>
+		<script src="theme/scripts/colorbox.js" type="text/javascript"></script>
+		<script src="theme/scripts/hammer.js" type="text/javascript"></script>	
+		<script src="theme/scripts/subscribe.js" type="text/javascript"></script>
+		<script src="theme/scripts/contact.js" type="text/javascript"></script>
+		<script src="theme/scripts/swipe.js" type="text/javascript"></script>
+		<script src="theme/scripts/swipebox.js" type="text/javascript"></script>
+		<script src="theme/scripts/retina.js" type="text/javascript"></script>
+		<script src="theme/scripts/custom.js" type="text/javascript"></script>
+		<script src="theme/scripts/framework.js" type="text/javascript"></script>
+        
+		<script src="js/index.js" type="text/javascript"></script>
+		<script src="js/funciones.js" type="text/javascript"></script>
+		
+		<script src="./plugins/cordova-plugin-gps-danbreakingnews/www/GPSDanBreakingNews.js" type="text/javascript"></script>
+		<title>Login</title>
+    </head>
+    <body>
+	<div >
+        <div class="content">
+			<div class="decoration"></div>
+			<div class="container no-bottom">
+            <div class="contact-form no-bottom"> 
+                <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                    <div class="notification-box green-box">
+                        <h4>YOUR MESSAGE HAS BEEN SENT!</h4>
+                        <a href="#" class="close-notification">x</a>
+                        <div class="clear"></div>
+                        <p>
+                            You're message has been successfully sent. Please allow up to 48 hours for us to reply!  
+                        </p>  
+                    </div> 
+                </div>
+				<img src="img/image001.png" width="100%">
+				<br/>
+                <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+                    <fieldset>
+                        <div class="formFieldWrap">
+                            <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField" placeholder="Usuario"/>
+                        </div>
+                        <div class="formFieldWrap">
+                            <input type="password" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField" placeholder="Contrase&ntilde;a"/>
+                        </div>
+                        <a onclick="getLocationDBM()" class="no-bottom demo-button button grey fullscreen-button">Ingresar</a>
+                    </fieldset>
+                </form>       
+				<p id="demo">hola mundo</p>
+            </div>
+        </div>
+        </div>
+	</div>
+	<script>
+function getLocationDBM(){			
+	try
+	{
+		window.plugins.GPSDanBreakingNews.getGPSLocation([], resulto, noresulto);
+	}
+	catch(e)
+	{
+		document.getElementById("demo").innerHTML = e.message;
+	}
+}
+		
+function resulto(resultado)
+{
+	if (resultado != null) {
+		if( resultado.latitud <= 0 ||  resultado.longitud <= 0)
+        {
+			alert("Error, no se ha logrado obtener la ubicación geográfica. Vuelva a intentarlo");   
+			return;
+        }
+		
+		var mensaje = "[" + resultado.latitud + "," + resultado.longitud + "]";
+        document.getElementById("demo").innerHTML = mensaje;
+				
+		window.location = "home.html";
+    } 
+	else 
+	{
+		alert("Error, no se ha logrado obtener la ubicación geográfica. Vuelva a intentarlo");
+    }
+}
+		
+function noresulto(mensaje)
+{
+	if (mensaje != null) 
+	{
+		document.getElementById("demo").innerHTML = mensaje;
+    } 
+	else 
+	{
+		alert("Error, no se puede leer la configuración de su celular");    
+    }
+}
+	</script>
+    </body>
+</html>

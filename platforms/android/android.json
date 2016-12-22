@@ -1,0 +1,34 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Printer\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.printer.Printer\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [
+                        {
+                            "xml": "<activity android:exported=\"false\" android:label=\"Printer\" android:name=\"de.appplant.cordova.plugin.printer.ui.SelectPrinterActivity\" android:theme=\"@android:style/Theme.Material.Settings\"></activity>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {},
+    "dependent_plugins": {},
+    "modules": [],
+    "plugin_metadata": {}
+}
